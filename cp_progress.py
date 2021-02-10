@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #encoding:utf-8
 """
-filecopyTool.py
+cp_progress.py
 Show progress bar while copying large file
 https://github.com/dbr/checktveps/blob/1be8f4445fbf766eba25f98f78ec52e955571608/autoPathTv.py#L64-153
 """
