@@ -40,13 +40,13 @@ def check_if_num(word):
         return (False, word)
 
         
-def num_aware_line_compare(line1, line2, abs_tol=5.0):
+def num_aware_line_compare(line1, line2, abs_tol=5.0, rel_tol=None):
     """Compares two lines. Numeric fields any are checked with tolerence
     
     PARAMETERS
     ----------
     line{1, 2}: str
-        Lines to be compared.
+        Lines to be compared. Expects non-empty lines.
 
     RETURNS
     -------
@@ -68,10 +68,10 @@ def num_aware_line_compare(line1, line2, abs_tol=5.0):
 
 
 if __name__ == "__main__":
-
+    # Get lines from files while removing empty ones. `num_aware_line_comp` function excpects no empty lines
     with open(sys.argv[2], 'r') as verified_file, open(sys.argv[1], 'r') as out_file:
-        ver_lines = verified_file.readlines()
-        out_lines = out_file.readlines()
+        ver_lines = [line for line in verified_file.readlines() if line.strip()]
+        out_lines = [line for line in out_file.readlines() if line.strip()]
 
         prev_out_line_num = -1
         for ver_line_num in range(len(ver_lines)):
