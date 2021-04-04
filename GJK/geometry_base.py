@@ -147,3 +147,13 @@ def dot_direction(vec, direction):
     """
     return sum(((end_coord-start_coord)*dir_coord for start_coord, end_coord, dir_coord in zip(vec.get_start().get_coords(), vec.get_end().get_coords(), direction.get_coords())))
     
+def triple_prod(vec1, vec2, vec3):
+    """ Triple cross product (vec1 x vec2) x vec3.
+     
+    PARAMETERS
+    ----------
+    vec{1, 2, 3}: Vec
+    Vectors for triple cross product. Order is important
+    """
+    cross_vec = vec1.cross(vec2)
+    return cross_vec.cross(vec3)

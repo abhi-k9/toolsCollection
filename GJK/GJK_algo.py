@@ -16,7 +16,6 @@ from geometry_base import *
 from shapes import *
 
 
-
 def support(shape1, shape2, direction):
     """Find support for the Minkowski difference in the given direction
     
@@ -77,17 +76,6 @@ def triangle_case(simplex, direction):
     else: # Origin is contained inside the simplex
         return True
 
-def triple_prod(vec1, vec2, vec3):
-    """ Triple cross product (vec1 x vec2) x vec3.
-     
-    PARAMETERS
-    ----------
-    vec{1, 2, 3}: Vec
-    Vectors for triple cross product. Order is important
-    """
-    cross_vec = vec1.cross(vec2)
-    return cross_vec.cross(vec3)
-
 def GJK(shape1, shape2):
     """ Implementation of the GJK algorithm
     
@@ -119,8 +107,7 @@ def GJK(shape1, shape2):
         if handle_simplex(simplex, direction):
             return True
     
-    
-    
+
 if __name__ == "__main__":
     
     s1 = Sphere(radius = 5 ,center=Point(10,10))
