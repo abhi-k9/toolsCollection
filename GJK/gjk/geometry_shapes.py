@@ -102,6 +102,12 @@ class Sphere(Shape):
 
 class Cuboid(Shape):
     def __init__(self, height, width, depth=0, center=Point(0,0,0)):
+        """"
+        PARAMETERS
+        ----------
+        height, width, depth: int, float
+        Dimension along x-axis, y-axis, and z-axis respectively
+        """
         self._center = center # by-pass setter method, since it calls calc_vertices which needs both `_center` and `_dims` attributes to be set.
         self.dims = (height, width, depth)
         self.calc_vertices()
@@ -132,7 +138,7 @@ class Cuboid(Shape):
     def center(self, c):
         self._center = c
         self.calc_vertices()
-     
+             
     def calc_vertices(self):
         cx, cy, cz = self.center.coords
         delta_x, delta_y, delta_z = (dim/2 for dim in self.dims)
@@ -153,7 +159,7 @@ class Cuboid(Shape):
         d_x, d_y, d_z = direction.coords
         vertices = self.vertices
         
-        face = vertices[0] if d_z >0 else vertices[1]
+        face = vertices[0] if d_z > 0 else vertices[1]
         side = face[:2] if d_y > 0 else face[2:]
         vertex = side[0] if d_x > 0 else side[1]
         
