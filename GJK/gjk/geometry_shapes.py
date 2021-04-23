@@ -70,6 +70,7 @@ class Circle(Shape):
         Needs to be normalized (i.e. of unit length)
         """
         projected_direction = direction - self._normal*dot_dir_dir(self._normal, direction) # direction on the circle plane.
+        projected_direction = projected_direction.get_normalized()
         return self.center + projected_direction*self._radius
     
 
