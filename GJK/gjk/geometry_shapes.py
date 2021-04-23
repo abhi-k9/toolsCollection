@@ -4,7 +4,7 @@ Shape library for GJK algorithm
 
 __author__ = "Abhijit Kale"
 
-from geometry_base import Point, dot_dir_dir
+from .geometry_basic import Point, dot_dir_dir
 
 class Shape:
     """Interface for shape objects"""
@@ -63,7 +63,13 @@ class Circle(Shape):
         self._normal = n.get_normalized()
     
     def support(self, direction):
-        projected_direction = direction - direction*dot_dir_dir(self._normal, direction)
+        """
+        PARAMETERS
+        ----------
+        direction: Point
+        Needs to be normalized (i.e. of unit length)
+        """
+        projected_direction = direction - self._normal*dot_dir_dir(self._normal, direction) # direction on the circle plane.
         return self.center + projected_direction*self._radius
     
 

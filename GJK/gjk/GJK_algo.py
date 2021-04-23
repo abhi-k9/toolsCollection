@@ -14,8 +14,8 @@ Inspired from https://www.youtube.com/watch?v=ajv46BSqcK4
 
 __author__ = "Abhijit Kale"
 
-from geometry_base import *
-from shapes import *
+from .geometry_basic import *
+from .geometry_shapes import *
 
 def support(shape1, shape2, direction):
     """Find support for the Minkowski difference in the given direction.

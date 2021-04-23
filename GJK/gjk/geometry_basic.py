@@ -48,6 +48,9 @@ class Point:
             self._direction = Point(*(coord/self.distance for coord in self.coords))
             return self._direction
     
+    def __eq__(self, other_point):
+        return True if self.coords == other_point.coords else False
+    
     def __neg__(self):
         return Point(*(-coord for coord in self.coords))
     
@@ -60,6 +63,12 @@ class Point:
     def __mul__(self, magnitude):
         return Point(*(coord*magnitude for coord in self.coords))
     
+    def __abs__(self):
+        return Point(*(abs(coord) for coord in self.coords))
+    
+    def __round__(self, ndigits=0):
+        return Point(*(round(coord, ndigits) for coord in self.coords))
+        
     def __repr__(self):
         return f"Point(*{self._coords})"
     
